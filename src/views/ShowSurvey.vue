@@ -59,7 +59,7 @@ export default {
       })
     },
     deletesurvey (surveyid) {
-      axios.delete('http://localhost:3000/api/survey/delete' + surveyid)
+      axios.delete(`http://`+ Address.ip +`/api/survey/delete` + surveyid)
       .then((result) => {
         this.$router.push({
           name: 'survey'
