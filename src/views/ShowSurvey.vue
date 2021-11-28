@@ -42,7 +42,7 @@ export default {
     }
   },
   created () {
-    axios.get(`http://localhost:3000/api/survey/` + this.$route.params.id)
+    axios.get(`http://`+ Address.ip +`/api/survey/` + this.$route.params.id)
     .then(response => {
       this.survey = response.data
       console.log(response.data.question)
