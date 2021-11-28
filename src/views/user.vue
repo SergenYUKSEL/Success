@@ -4,7 +4,7 @@
     <b-col cols="12">
       <h2>
         User List
-        <b-link href="/CreateUser">(Add User)</b-link>
+        <b-link href="/Signup">(Add User)</b-link>
       </h2>
       
       <b-table striped hover :items="users" :fields="fields">
