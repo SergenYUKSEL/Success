@@ -41,12 +41,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/CreateQuestion.vue')
   },
   {
-    path: '/modifyquestion:id',
+    path: '/modifyquestion/:id',
     name: 'ModifyQuestion',
     component: () => import(/* webpackChunkName: "about" */ '../views/ModifyQuestion.vue')
   },
   {
-    path: '/modifysurvey:id',
+    path: '/modifysurvey/:id',
     name: 'ModifySurvey',
     component: () => import(/* webpackChunkName: "about" */ '../views/ModifySurvey.vue')
   },
@@ -56,7 +56,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/survey.vue')
   },
   {
-    path: '/showsurvey:id',
+    path: '/showsurvey/:id',
     name: 'ShowSurvey',
     component: () => import(/* webpackChunkName: "about" */ '../views/ShowSurvey.vue')
   },
@@ -66,7 +66,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/question.vue')
   },
   {
-    path: '/showquestion:id',
+    path: '/showquestion/:id',
     name: 'ShowQuestion',
     component: () => import(/* webpackChunkName: "about" */ '../views/ShowQuestion.vue')
   },
@@ -76,12 +76,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/CreateCategory.vue')
   },
   {
-    path: '/showcategory:id',
+    path: '/showcategory/:id',
     name: 'ShowCategory',
     component: () => import(/* webpackChunkName: "about" */ '../views/ShowCategory.vue')
   },
   {
-    path: '/modifycategory:id',
+    path: '/modifycategory/:id',
     name: 'ModifyCategory',
     component: () => import(/* webpackChunkName: "about" */ '../views/ModifyCategory.vue')
   },
@@ -91,7 +91,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/category.vue')
   },
   {
-    path: '/showuser:id',
+    path: '/showuser/:id',
     name: 'ShowUser',
     component: () => import(/* webpackChunkName: "about" */ '../views/ShowUser.vue')
   },
