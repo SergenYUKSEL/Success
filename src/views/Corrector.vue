@@ -15,6 +15,9 @@
     <br>
     <a href="user"> Liste des user</a> <br>
     <a href="Signup"> Créer un user </a> <br>
+    <br>
+    <a href="group"> Liste des groupes</a> <br>
+    <a href="CreateGroup"> Créer un groupe</a>
     <!-- <Tabled test="bonjour!"/> -->
 
 

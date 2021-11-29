@@ -105,7 +105,32 @@ const routes = [
     name: 'Signup',
     component: () => import(/* webpackChunkName: "about" */ '../views/Signup.vue')
   
-  }
+  },
+  {
+    path: '/creategroup',
+    name: 'CreateGroup',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CreateGroup.vue')
+  
+  },
+  {
+    path: '/modifygroup/:id',
+    name: 'ModifyGroup',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ModifyGroup.vue')
+  
+  },
+  {
+    path: '/showgroup/:id',
+    name: 'ShowGroup',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ShowGroup.vue')
+  
+  },
+  {
+    path: '/group',
+    name: 'group',
+    component: () => import(/* webpackChunkName: "about" */ '../views/group.vue')
+  
+  },
+  
 
 ]
 

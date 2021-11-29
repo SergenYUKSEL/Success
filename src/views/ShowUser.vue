@@ -7,18 +7,23 @@
       </h2>
       <b-jumbotron>
         <template slot="header">
-          {{user.lastname && user.firstname}}
         </template>
         <template slot="lead">
-          Adresse email: {{user.email}}<br>
-          Nom: {{user.lastname}}<br>
-          Prénom: {{user.firstname}}<br>
-          Group: {{user.group}}<br>
+      <div v-for="users in user" :key="users._id">
+          Adresse email: {{users.email}}<br>
+          Nom: {{users.lastname}}<br>
+          Prénom: {{users.firstname}}<br>
+          <div v-for="usergroup in users.group" :key="usergroup._id">
+           Groupe {{usergroup.groupName}}
+          </div>
+      </div>
         </template>
+        
         <hr class="my-4">
-
-       <!-- <b-btn variant="success" @click.stop="edituser(user._id)">Edit</b-btn> -->
-        <b-btn variant="danger" @click.stop="deleteuser(user._id)">Delete</b-btn>
+        <div v-for="users in user" :key="users._id">
+        <b-btn variant="success" @click.stop="edituser(users._id)">Edit</b-btn>
+       <b-btn variant="danger" @click.stop="deleteuser(users._id)">Delete</b-btn>
+        </div>
       </b-jumbotron>
     </b-col>
   </b-row>
@@ -33,13 +38,14 @@ export default {
   name: 'ShowUser',
   data () {
     return {
-      user: []
+      user: [],
     }
   },
   created () {
     axios.get(`http://`+ Address.ip +`/api/auth/` + this.$route.params.id)
     .then(response => {
       this.user = response.data
+      
     })
     .catch(e => {
       this.errors.push(e)

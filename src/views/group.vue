@@ -3,17 +3,17 @@
   <b-row>
     <b-col cols="12">
       <h2>
-        User List
-        <b-link href="/Signup">(Add User)</b-link>
+        Group List
+        <b-link href="/CreateGroup">(Add Group)</b-link>
       </h2>
       
-      <b-table striped hover :items="users" :fields="fields">
+      <b-table striped hover :items="groups" :fields="fields">
         <template  slot="cell(actions)" slot-scope="row">
            <b-btn size="sm" @click.stop="details(row.item)">Details</b-btn>  
         </template>
       </b-table>
       <ul v-if="errors && errors.length">
-        <li v-for="error of errors" v-bind:key="error.id">
+        <li v-for="error of errors" v-bind:key="error._id">
           {{error.message}}
         </li>
       </ul>
@@ -24,37 +24,35 @@
 
 <script>
 /* eslint-disable */
-import axios from 'axios'
 const Address = require('../../config/AddressApi')
+import axios from 'axios'
 export default {
-  name: 'ListUser',
+  name: 'ListGroup',
   data () {
     return {
       fields: [
-        'email',
-        'lastname',
-        'firstname',
-        'group[0].groupName',
+        'groupName',
         'actions'        
       ],
-      users: [],
+      groups: [],
       errors: []
     }
   },
   created () {
-    axios.get(`http://`+ Address.ip +`/api/auth/`)
+    axios.get(`http://`+ Address.ip +`/api/group`)
     .then(response => {
-      this.users = response.data
+      this.groups = response.data
+      
     })
     .catch(e => {
       this.errors.push(e)
     })
   },
   methods: {
-    details (user) {
+    details (group) {
       this.$router.push({
-        name: 'ShowUser',
-        params: { id: user._id }
+        name: 'ShowGroup',
+        params: { id: group._id }
       })
     }
   }
