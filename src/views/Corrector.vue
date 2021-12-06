@@ -24,13 +24,19 @@
 </div>
 </template>
 <script>
-// import Tabled from '@/components/Tabled.vue'
-// export default {
-//    name: 'Corrector',
-//    components: {
-//        Tabled
-//    }
-//}
+import axios from 'axios';
+const token = sessionStorage.getItem('Token')
+export default {
+  name: 'Corrector',
+  data() {
+      return {
+
+      }
+  },
+created() {
+    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
+},
+}
 
 </script>
 

@@ -23,12 +23,16 @@
 
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 export default {
   name: 'CreateGroup',
   data () {
     return {
       group: {}
     }
+  },
+  created() {
+    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
   },
   methods: {
     onSubmit (evt) {

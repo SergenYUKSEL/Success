@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link to="/">Accueil</router-link> |
       <router-link to="/corrector">Espace Correcteur</router-link> |
-      <router-link to="/collaborator">Espace Collaborateur</router-link>
+      <router-link to="/collaborator">Espace Collaborateur</router-link> |
+      <router-link to="/logout">Déconnexion</router-link>
     </div>
     <router-view/>
   </div>

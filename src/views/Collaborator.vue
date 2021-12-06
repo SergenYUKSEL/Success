@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+const token = sessionStorage.getItem('Token');
 export default {
     name:"Collaborator",
     logout () {
@@ -14,7 +16,10 @@ export default {
     this.$router.push({
       name: 'Login'
     })
-    }
+    },
+  created() {
+    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token 
+  }
 }
 </script>
 

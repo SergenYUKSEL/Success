@@ -53,6 +53,7 @@
 
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 
 export default {
   name: 'CreateQuestion',
@@ -65,7 +66,9 @@ export default {
     }
   },
   created() {
-    axios.get(`http://`+ Address.ip +`/api/category`)
+    axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
+      axios.get(`http://`+ Address.ip +`/api/category`)
     .then(response => {
       this.categories = response.data
       
@@ -73,6 +76,7 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
+    )
   },
   
   methods: {

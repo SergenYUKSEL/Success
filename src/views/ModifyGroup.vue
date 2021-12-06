@@ -24,6 +24,7 @@
 
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 
 export default {
   name: 'ModifyGroup',
@@ -33,13 +34,17 @@ export default {
     }
   },
   created () {
-    axios.get(`http://`+ Address.ip +`/api/group/` + this.$route.params.id)
+    axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
+      axios.get(`http://`+ Address.ip +`/api/group/` + this.$route.params.id)
     .then(response => {
       this.group = response.data
     })
     .catch(e => {
       this.errors.push(e)
     })
+    )
+    
   },
   methods: {
     onSubmit (evt) {

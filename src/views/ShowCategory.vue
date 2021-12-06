@@ -28,6 +28,7 @@
 
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 
 export default {
   name: 'ShowCategory',
@@ -37,13 +38,17 @@ export default {
     }
   },
   created () {
-    axios.get(`http://`+ Address.ip +`/api/category/` + this.$route.params.id)
+    axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
+      axios.get(`http://`+ Address.ip +`/api/category/` + this.$route.params.id)
     .then(response => {
       this.category = response.data
     })
     .catch(e => {
       this.errors.push(e)
     })
+    )
+    
   },
   methods: {
     editcategory (categoryid) {

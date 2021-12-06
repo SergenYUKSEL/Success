@@ -66,6 +66,7 @@
 
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 
 export default {
   
@@ -80,6 +81,7 @@ export default {
   
   created() {
     axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
       axios.get(`http://`+ Address.ip +`/api/question`)
     .then(response => {
       this.questions = response.data

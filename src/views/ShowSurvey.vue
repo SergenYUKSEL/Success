@@ -34,6 +34,7 @@
 /* eslint-disable */
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 export default {
   name: 'ShowSurvey',
   data () {
@@ -42,7 +43,9 @@ export default {
     }
   },
   created () {
-    axios.get(`http://`+ Address.ip +`/api/survey/` + this.$route.params.id)
+    axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
+      axios.get(`http://`+ Address.ip +`/api/survey/` + this.$route.params.id)
     .then(response => {
       this.survey = response.data
       console.log(response.data.question)
@@ -50,6 +53,7 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
+    )
   },
   methods: {
     editsurvey (surveyid) {

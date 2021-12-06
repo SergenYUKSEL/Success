@@ -96,6 +96,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/ShowUser.vue')
   },
   {
+    path: '/modifyuser/:id',
+    name: 'ModifyUser',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ModifyUser.vue')
+  },
+  {
     path: '/user',
     name: 'user',
     component: () => import(/* webpackChunkName: "about" */ '../views/user.vue')
@@ -128,6 +133,12 @@ const routes = [
     path: '/group',
     name: 'group',
     component: () => import(/* webpackChunkName: "about" */ '../views/group.vue')
+  
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Logout.vue')
   
   },
   

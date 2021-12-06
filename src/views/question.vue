@@ -28,6 +28,7 @@
 /* eslint-disable */
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 export default {
   name: 'ListQuestion',
   data () {
@@ -43,13 +44,16 @@ export default {
     }
   },
   created () {
-    axios.get(`http://`+ Address.ip +`/api/question`)
+    axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
+      axios.get(`http://`+ Address.ip +`/api/question`)
     .then(response => {
       this.questions = response.data
     })
     .catch(e => {
       this.errors.push(e)
     })
+    )
   },
   methods: {
     details (question) {

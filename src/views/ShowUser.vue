@@ -33,6 +33,7 @@
 
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 
 export default {
   name: 'ShowUser',
@@ -42,7 +43,9 @@ export default {
     }
   },
   created () {
-    axios.get(`http://`+ Address.ip +`/api/auth/` + this.$route.params.id)
+    axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
+      axios.get(`http://`+ Address.ip +`/api/auth/` + this.$route.params.id)
     .then(response => {
       this.user = response.data
       
@@ -50,7 +53,9 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
+    )
   },
+  
   methods: {
     edituser (userid) {
       this.$router.push({
@@ -58,6 +63,10 @@ export default {
         params: { id: userid }
       })
     },
+    headers: { 
+    'Authorization': 'Bearer ', 
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
     deleteuser (userid) {
       axios.delete(`http://`+ Address.ip +`/api/auth/delete` + userid)
       .then((result) => {

@@ -26,6 +26,7 @@
 /* eslint-disable */
 const Address = require('../../config/AddressApi')
 import axios from 'axios'
+const token = sessionStorage.getItem('Token')
 export default {
   name: 'ListGroup',
   data () {
@@ -39,7 +40,9 @@ export default {
     }
   },
   created () {
-    axios.get(`http://`+ Address.ip +`/api/group`)
+    axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
+      axios.get(`http://`+ Address.ip +`/api/group`)
     .then(response => {
       this.groups = response.data
       
@@ -47,6 +50,7 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
+    )
   },
   methods: {
     details (group) {

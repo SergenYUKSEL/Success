@@ -34,12 +34,16 @@
 
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 export default {
   name: 'CreateCategory',
   data () {
     return {
       category: {}
     }
+  },
+  created() {
+    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
   },
   methods: {
     onSubmit (evt) {

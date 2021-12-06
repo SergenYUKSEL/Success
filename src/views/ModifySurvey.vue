@@ -64,6 +64,7 @@
 
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
+const token = sessionStorage.getItem('Token')
 
 export default {
   name: 'ModifySurvey',
@@ -77,6 +78,7 @@ export default {
   },
   created () {
     axios.all(
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
       axios.get(`http://`+ Address.ip +`/api/survey/` + this.$route.params.id)
     .then(response => {
       this.survey = response.data

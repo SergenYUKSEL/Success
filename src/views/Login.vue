@@ -48,24 +48,29 @@ export default {
       evt.preventDefault()
       axios.post(`http://`+ Address.ip +`/api/auth/login/`, this.user)
       .then(response => {
-        localStorage.setItem('jwtToken', response.data.token)
-        if ((response.data.userGroup =="collaborator")) {
+        sessionStorage.setItem('Token', response.data.token)
+        if ((response.data.userRole =="collaborator")) {
             this.$router.push({
           name: 'Collaborator',
          // (pour l'instant on ne va pas l'utilisé) params: { token: response.data.token }
         })
-        } else if ((response.data.userGroup == "corrector")) {
-        this.$router.push({
-          name: 'Corrector',
+        } else if ((response.data.userRole == "corrector")) {
+          this.$router.push({
+            name: 'Corrector',
+          })
          // (pour l'instant on ne va pas l'utilisé) params: { token: response.data.token }
-      })
+      
       }
       })
       .catch(e => {
         console.log(e)
         this.errors.push(e)
-      })
+      }), {
+        
+      }
     },
+    
+     
     register () {
       this.$router.push({
         name: 'Signup'
