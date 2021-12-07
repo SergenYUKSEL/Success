@@ -13,28 +13,36 @@
            <option v-for="group in groups" :key="group._id" :value="group._id" > {{group.groupName}}</option>
           </b-form-select>
         </b-form-group>
-        <b-form-group v-if="users.group" id="fieldsetHorizontal"
+        <b-form-group  id="fieldsetHorizontal"
+                  horizontal
+                  :label-cols="4"
+                  breakpoint="md"
+                  label="Rôle">
+          <b-form-select v-model.trim="users.role" :options="options" size="sm" class="mt-3">
+          </b-form-select>
+        </b-form-group>
+        <b-form-group  id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
                   label="Enter Email">
           <b-form-input id="email" v-model.trim="users.email"></b-form-input>
         </b-form-group>
-         <b-form-group v-if="users.group" id="fieldsetHorizontal"
+        <b-form-group  id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
                   label="Enter Password">
-          <b-form-input type="password" id="password" v-model.trim="user.password"></b-form-input>
+          <b-form-input type="password" id="password" v-model.trim="users.password"></b-form-input>
         </b-form-group>
-        <b-form-group v-if="users.group" id="fieldsetHorizontal"
+        <b-form-group  id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
                   label="Enter Lastname">
           <b-form-input type="text" id="lastname" v-model.trim="users.lastname"></b-form-input>
         </b-form-group>
-        <b-form-group v-if="users.group" id="fieldsetHorizontal"
+        <b-form-group  id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
@@ -60,6 +68,11 @@ export default {
   name: 'ModifyUser',
   data () {
     return {
+      options: [
+          { value: null, text: 'Please select an option' },
+          { value: 'collaborator', text: 'Collaborateur' },
+          { value: 'corrector', text: 'Correcteur' },
+        ],
       user: {},
       groups: [],
     }
@@ -86,7 +99,9 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      axios.put(`http://`+ Address.ip +`/api/auth/modify/` + this.$route.params.id, this.user)
+      axios.patch(`http://`+ Address.ip +`/api/auth/modify` + this.$route.params.id, this.user, { params: {
+        firstname
+      }})
       .then(response => { 
         this.$router.push({
           name: 'ShowUser',

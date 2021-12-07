@@ -49,6 +49,8 @@ export default {
       axios.post(`http://`+ Address.ip +`/api/auth/login/`, this.user)
       .then(response => {
         sessionStorage.setItem('Token', response.data.token)
+        sessionStorage.setItem('User', response.data.userId)
+        sessionStorage.setItem('Role', response.data.userRole)
         if ((response.data.userRole =="collaborator")) {
             this.$router.push({
           name: 'Collaborator',

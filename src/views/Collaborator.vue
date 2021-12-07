@@ -18,7 +18,12 @@ export default {
     })
     },
   created() {
-    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token 
+    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
+    if(sessionStorage.getItem('Role') === 'corrector') {
+      this.$router.push({
+      name: 'Corrector'
+    })
+    }
   }
 }
 </script>
