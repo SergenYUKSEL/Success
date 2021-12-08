@@ -24,7 +24,6 @@
         <p>collaborateur@gmail.com  mdp : collaborateur</p>
           <p>correcteur@gmail.com  mdp : correcteur</p>
         <b-button type="submit" variant="primary">Login</b-button>
-        <b-button type="button" variant="success" @click.stop="register()">Register</b-button>
       </b-form>
     </b-col>
   </b-row>
@@ -43,6 +42,13 @@ export default {
       errors: []
     }
   },
+  created() {
+      if(sessionStorage.getItem('Logged') === true) {
+        this.$router.push({
+          name: 'Collaborator',
+        })
+      }
+    },
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
@@ -51,6 +57,7 @@ export default {
         sessionStorage.setItem('Token', response.data.token)
         sessionStorage.setItem('User', response.data.userId)
         sessionStorage.setItem('Role', response.data.userRole)
+        sessionStorage.setItem('Logged', true)
         if ((response.data.userRole =="collaborator")) {
             this.$router.push({
           name: 'Collaborator',
@@ -71,13 +78,6 @@ export default {
         
       }
     },
-    
-     
-    register () {
-      this.$router.push({
-        name: 'Signup'
-      })
-    }
   }
 }
 </script>

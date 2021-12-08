@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Accueil</router-link> |
+      <router-link to="/">Login</router-link> |
+       <router-link to="/signup">Register</router-link> |
       <router-link to="/corrector">Espace Correcteur</router-link> |
       <router-link to="/collaborator">Espace Collaborateur</router-link> |
       <router-link to="/logout">Déconnexion</router-link>
@@ -9,7 +10,11 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+export default {
+  
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

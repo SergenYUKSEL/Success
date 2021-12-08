@@ -21,6 +21,7 @@
     "vue-multiselect": "^2.1.6",
     "vue-router": "^3.5.2",
     "vue-select": "^3.16.0",
+    "vue-step-wizard": "^0.1.17",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

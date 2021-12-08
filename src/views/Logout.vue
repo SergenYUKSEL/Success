@@ -10,15 +10,14 @@ export default {
         }
     },
     created() {
-        if (sessionStorage.getItem('Token') != null)   {
-            sessionStorage.removeItem('Token'),
-            sessionStorage.removeItem('User'),
-            sessionStorage.removeItem('Role'),
-            alert('vous avez été deconnecté avec succès !'),
+        if (sessionStorage.getItem('Token') != null && sessionStorage.getItem('User') != null && sessionStorage.getItem('Role') != null)   {
+            sessionStorage.clear()
+            alert('vous avez été deconnecté avec succès !')
             this.$router.push({
                 name: 'Login'
             })
         }
+        
 
 
     }

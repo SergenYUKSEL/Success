@@ -81,6 +81,11 @@ export default {
     }
   },
   created() {
+    if(sessionStorage.getItem('Role') === 'collaborator') {
+        this.$router.push({
+          name: 'Collaborator',
+        })
+      }
     axios.all(
       axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
       axios.get(`http://`+ Address.ip +`/api/group/`)
@@ -102,7 +107,7 @@ export default {
       .then(response => {
         alert("Registered successfully")
         this.$router.push({
-          name: 'Login'
+          name: 'Corrector'
         })
         return response
       })

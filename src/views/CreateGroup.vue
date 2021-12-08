@@ -32,6 +32,12 @@ export default {
     }
   },
   created() {
+    if(sessionStorage.getItem('Role') === 'collaborator') {
+        this.$router.push({
+          name: 'Collaborator',
+        })
+      }
+      
     axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
   },
   methods: {
