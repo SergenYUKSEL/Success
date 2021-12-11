@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Espace Collaborateur</h1>
+        <h1>Espace Collaborateur </h1>
         <a href="passsurvey">Passer un questionnaire</a>
     </div>
 </template>
@@ -16,6 +16,11 @@ export default {
     if(sessionStorage.getItem('Role') === 'corrector') {
       this.$router.push({
       name: 'Corrector'
+    })
+    }
+    else if (sessionStorage.getItem('Logged') != "true") {
+      this.$router.push({
+      name: 'Login'
     })
     }
   }

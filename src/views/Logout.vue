@@ -16,7 +16,13 @@ export default {
             this.$router.push({
                 name: 'Login'
             })
+            this.$router.go()
         }
+        else if (sessionStorage.getItem('Logged') != "true") {
+      this.$router.push({
+      name: 'Login'
+    })
+    }
         
 
 

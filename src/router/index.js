@@ -141,6 +141,18 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Logout.vue')
   
   },
+  {
+    path: '/surveypass',
+    name: 'surveypass',
+    component: () => import(/* webpackChunkName: "about" */ '../views/surveypass.vue')
+  
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue')
+  
+  },
   
 
 ]

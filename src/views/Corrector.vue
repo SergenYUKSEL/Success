@@ -39,6 +39,11 @@ created() {
           name: 'Collaborator',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") {
+      this.$router.push({
+      name: 'Login'
+    })
+    }
     axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
 },
 }

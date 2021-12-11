@@ -86,6 +86,11 @@ export default {
           name: 'Collaborator',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") {
+      this.$router.push({
+      name: 'Login'
+    })
+    }
     axios.all(
       axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
       axios.get(`http://`+ Address.ip +`/api/group/`)

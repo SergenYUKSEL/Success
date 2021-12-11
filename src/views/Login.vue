@@ -21,8 +21,6 @@
                   label="Enter Password">
           <b-form-input type="password" id="password" v-model.trim="user.password"></b-form-input>
         </b-form-group>
-        <p>collaborateur@gmail.com  mdp : collaborateur</p>
-          <p>correcteur@gmail.com  mdp : correcteur</p>
         <b-button type="submit" variant="primary">Login</b-button>
       </b-form>
     </b-col>
@@ -43,11 +41,16 @@ export default {
     }
   },
   created() {
-      if(sessionStorage.getItem('Logged') === true) {
-        this.$router.push({
-          name: 'Collaborator',
-        })
-      }
+        if (sessionStorage.getItem('Logged') === "true" && sessionStorage.getItem('Role') === 'collaborator') {
+      this.$router.push({
+      name: 'Collaborator'
+    })
+    }
+    else if (sessionStorage.getItem('Logged') === "true" && sessionStorage.getItem('Role') === 'corrector') {
+      this.$router.push({
+      name: 'Corrector'
+    })
+    }
     },
   methods: {
     onSubmit (evt) {
@@ -57,16 +60,18 @@ export default {
         sessionStorage.setItem('Token', response.data.token)
         sessionStorage.setItem('User', response.data.userId)
         sessionStorage.setItem('Role', response.data.userRole)
-        sessionStorage.setItem('Logged', true)
+        sessionStorage.setItem('Logged', "true")
         if ((response.data.userRole =="collaborator")) {
             this.$router.push({
           name: 'Collaborator',
          // (pour l'instant on ne va pas l'utilisé) params: { token: response.data.token }
         })
+        this.$router.go() // permet d'actualiser la page pour le menu 
         } else if ((response.data.userRole == "corrector")) {
           this.$router.push({
             name: 'Corrector',
           })
+          this.$router.go() // permet d'actualiser la page pour le menu 
          // (pour l'instant on ne va pas l'utilisé) params: { token: response.data.token }
       
       }

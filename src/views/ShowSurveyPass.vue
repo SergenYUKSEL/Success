@@ -10,8 +10,8 @@
           
         </template>
         <template slot="lead">
-
-            Name : {{survey.surveyName}} <br>
+          
+            Name : {{passsurvey}} <br>
             Code : {{survey.number}} <br>
             Point : {{survey.point}} <br>
             Temps : {{survey.time}} <br>
