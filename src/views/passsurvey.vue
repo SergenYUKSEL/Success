@@ -17,13 +17,12 @@
         </tab-content>
         <tab-content title="Réponse aux questionnaires"> 
             <div class="form-group" v-for="survey in surveys" :key="survey.id" v-if="surveypass.surveyId === survey._id">
-              <span v-for="(question, i) in survey.question" :key="i">
-                  <label  >{{question.questionContent}}</label>
-                  <input type="text" v-model="surveypass.reponse">
-                  <!-- il va falloir désynchronisé le v-model pour pouvoir entré des valeurs différents avec plusieurs input en ayant le même v-model -->
-              </span>
+              <Questions :questions="survey.question" :reponse="survey.reponse"  v-on="surveypass.reponse = survey.reponse" v-model="surveypass.reponse" ></Questions>
+              
             </div>
-            
+           <div v-for="survey in surveys" :key="survey._id" v-if="surveypass.surveyId === survey._id">
+             
+           </div>
         </tab-content>
         <button v-on:click="onComplete"> Envoyer</button>
     </form-wizard>
@@ -32,6 +31,7 @@
 <script>
 import {FormWizard, TabContent} from 'vue-step-wizard'
 import "vue-step-wizard/dist/vue-step-wizard.css";
+import Questions from '../components/Questions.vue'
 import axios from 'axios'
 const Address = require('../../config/AddressApi')
 const token = sessionStorage.getItem('Token')
@@ -39,9 +39,11 @@ const userId = sessionStorage.getItem('User')
 
 
 export default {
+  /* eslint-disable */
+    
     name: 'BasicStepperForm',
     components: {
-        FormWizard, TabContent
+        FormWizard, TabContent, Questions
     },
     data(){
         return {
@@ -49,6 +51,9 @@ export default {
             surveys: [],
             categories: [],
             users: [],
+            reponse: [],
+
+            
 
         }
     },
