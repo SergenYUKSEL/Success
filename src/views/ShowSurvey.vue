@@ -16,9 +16,9 @@
             Point : {{survey.point}} <br>
             Temps : {{survey.time}} <br>
             Catégorie : {{survey.surveyCategory}} <br><br>
-            <div v-for="questions in survey.question" :key="questions._id"> 
+            <div v-for="(questions, i) in survey.question" :key="i._id"> 
               
-              Question  : {{ questions.questionContent }} = {{questions.questionAnswer}} <br>
+              Question n°{{i + 1}}  : {{ questions.questionContent }} = {{questions.questionAnswer}} <br>
             </div>
     
         </template>

@@ -1,24 +1,20 @@
 <template>
 <div class="corrector">
     
-    <h1>Bienvenue sur le site </h1>
-    <h1> Listes des questionnaires à corriger </h1>
-    <a href="survey"> Liste des questionnaires</a> <br>
-    <a href="CreateSurvey"> Créer un questionnaire </a> <br>
-    <br>
-    <a href="question"> Liste des questions</a> <br>
-    <a href="CreateQuestion"> Créer une question </a> <br>
-    <br>
-    <a href="category"> Liste des catégories</a> <br>
-    <a href="CreateCategory"> Créer une catégorie </a> <br>
+    <h1>Bienvenue dans l'espace Correcteur  </h1><br><br>
 
-    <br>
-    <a href="user"> Liste des user</a> <br>
-    <a href="Signup"> Créer un user </a> <br>
-    <br>
-    <a href="group"> Liste des groupes</a> <br>
-    <a href="CreateGroup"> Créer un groupe</a>
-    <!-- <Tabled test="bonjour!"/> -->
+    <router-link class="btn btn-primary" to="survey"> Liste des Quizz</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="CreateSurvey"> Créer un Quizz</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="question"> Liste des Questions</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="CreateQuestion"> Créer un Question</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="category"> Liste des Catégories</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="CreateCategory"> Créer une Catégorie</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="user"> Liste des Utilisateurs</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="Signup"> Créer un compte Utilisateur</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="group"> Liste des Groupes</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="CreateGroup"> Créer un Groupe</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="Dashboard">Statistique</router-link> <br> <br>
+
 
 
 </div>
@@ -30,7 +26,7 @@ export default {
   name: 'Corrector',
   data() {
       return {
-
+        
       }
   },
 created() {

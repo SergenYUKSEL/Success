@@ -16,7 +16,10 @@
           <router-link to="passsurvey">Passer un questionnaire</router-link>
         </b-dropdown-item>
         <b-dropdown-item>
-          <router-link to="">Statistique</router-link>
+          <router-link to="listCorrection">Afficher les quizz dèja réalisé</router-link>
+        </b-dropdown-item>
+        <b-dropdown-item>
+          <router-link to="DashboardCollab">Statistique</router-link>
         </b-dropdown-item>
       </b-nav-item-dropdown>
 
@@ -72,13 +75,10 @@
         <b-dropdown-item-button>
           <router-link to="">Correction des questionnaires</router-link>
         </b-dropdown-item-button>
-        <b-dropdown-item-button>
-          <router-link to="">Statistique des collaborateurs</router-link>
-        </b-dropdown-item-button> 
       </b-dropdown-group>
       <b-dropdown-divider></b-dropdown-divider>
       <b-dropdown-item-button>
-        <router-link to="">Statistique</router-link>
+        <router-link to="Dashboard">Statistique</router-link>
       </b-dropdown-item-button>
   </b-nav-item-dropdown>
     <b-nav-item v-if="Log === 'true'" class="m-2">

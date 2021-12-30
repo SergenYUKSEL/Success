@@ -17,14 +17,10 @@
         </tab-content>
         <tab-content title="Réponse aux questionnaires"> 
             <div class="form-group" v-for="survey in surveys" :key="survey.id" v-if="surveypass.surveyId === survey._id">
-              <Questions :questions="survey.question" :reponse="survey.reponse"  v-on="surveypass.reponse = survey.reponse" v-model="surveypass.reponse" ></Questions>
-              
+              <Questions :questions="survey.question" :reponse="survey.reponse"  v-on="surveypass.reponse = survey.reponse" v-model="surveypass.reponse"></Questions>
             </div>
-           <div v-for="survey in surveys" :key="survey._id" v-if="surveypass.surveyId === survey._id">
-             
-           </div>
+            <button class="btn btn-primary" v-on:click="onComplete"> Envoyer</button>
         </tab-content>
-        <button v-on:click="onComplete"> Envoyer</button>
     </form-wizard>
 </template>
 
@@ -83,10 +79,6 @@ export default {
     
   },
   methods: {
-    change(index, val) {
-      this.dataArray[0][index] = val;
-      console.log(index + ': ' + val);
-    },
     onComplete(evt) {
       evt.preventDefault()
       axios.post(`http://`+ Address.ip +`/api/surveypass/create/`, this.surveypass)
@@ -105,3 +97,9 @@ export default {
 }
 
 </script>
+
+<style>
+.step-button-submit {
+  visibility: hidden !important;
+}
+</style>

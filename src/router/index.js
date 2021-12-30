@@ -159,6 +159,30 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../components/Questions.vue')
   
   },
+  {
+    path: '/correction',
+    name: 'Correction',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Correction.vue')
+  
+  },
+  {
+    path: '/listcorrection',
+    name: 'listCorrection',
+    component: () => import(/* webpackChunkName: "about" */ '../views/listCorrection.vue')
+  
+  },
+  {
+    path: '/showsurveycorrect/:id',
+    name: 'ShowSurveyCorrect',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ShowSurveyCorrect.vue')
+  
+  },
+  {
+    path: '/dashboardcollab',
+    name: 'DashboardCollab',
+    component: () => import(/* webpackChunkName: "about" */ '../views/DashboardCollab.vue')
+  
+  },
  
   
 

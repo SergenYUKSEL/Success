@@ -1,5 +1,6 @@
 <template>
     <b-container class="bv-example-row">
+        <h1>Statistique de l'application web coté Correcteur</h1> <br><br>
         <b-row>
             <b-col>Questionnaires</b-col>
             <b-col>Questions</b-col>
@@ -9,6 +10,7 @@
             <b-col>Groupes</b-col>
 
         </b-row>
+        <hr class="my-4">
         <b-row>
             <b-col>{{surveys.length}}</b-col>
             <b-col>{{questions.length}}</b-col>

@@ -1,7 +1,10 @@
 <template>
     <div>
-        <h1>Espace Collaborateur </h1>
-        <a href="passsurvey">Passer un questionnaire</a>
+        <h1>Espace Collaborateur </h1><br>
+        <router-link class="btn btn-primary" to="passsurvey">Passer un questionnaire</router-link> <br><br>
+        <router-link class="btn btn-primary" to="listCorrection">Afficher les questionnaires dèja réalisé</router-link><br><br>
+        <router-link class="btn btn-primary" to="DashboardCollab">Afficher les statistiques</router-link>
+        
     </div>
 </template>
 
