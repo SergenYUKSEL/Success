@@ -9,10 +9,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for=""></label>
-                <select class="form-control" v-model="surveypass.userId">
-                  <option v-for="user in users" :key="user._id" :value="user._id" > {{user.lastname + ' ' + user.firstname}}</option>
-                </select>
+                <input class="form-control " type="hidden" v-model="surveypass.userId" >
             </div>
         </tab-content>
         <tab-content title="Réponse aux questionnaires"> 
@@ -43,7 +40,9 @@ export default {
     },
     data(){
         return {
-            surveypass: {},
+            surveypass: {
+              userId: userId,
+            },
             surveys: [],
             categories: [],
             users: [],
@@ -101,5 +100,8 @@ export default {
 <style>
 .step-button-submit {
   visibility: hidden !important;
+}
+.no-visible {
+  visibility: hidden;
 }
 </style>
