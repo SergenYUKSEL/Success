@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "61afe544a473057ebb1d9c5f"
+  },
+  "email": "collaborateur@gmail.com",
+  "password": "$2b$10$Ql0Onx4cW7nu8vUNvCsFaOkAOu6qbjY2NwaZrm/MDnBURbbqU3Mme",
+  "lastname": "YUKSEL",
+  "firstname": "Sergen",
+  "group": [
+    {
+      "$oid": "61afe51ba473057ebb1d9c5a"
+    }
+  ],
+  "role": "collaborator",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61afe5bba473057ebb1d9c75"
+  },
+  "email": "correcteur@gmail.com",
+  "password": "$2b$10$lngDwyUEzB.7AD.rvnGG.OcSCvO6twbXA1RfA9A1X6Pcsh5TrimzO",
+  "lastname": "TRIONFINI",
+  "firstname": "Sebastien",
+  "group": [
+    {
+      "$oid": "61afe51ba473057ebb1d9c5a"
+    }
+  ],
+  "role": "corrector",
+  "__v": 0
+}]

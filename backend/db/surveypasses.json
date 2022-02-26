@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "61afe623a473057ebb1d9c8d"
+  },
+  "userId": [
+    {
+      "$oid": "61afe544a473057ebb1d9c5f"
+    }
+  ],
+  "surveyId": [
+    {
+      "$oid": "619d156cf1f304642b3b14cf"
+    }
+  ],
+  "reponse": [
+    "21"
+  ],
+  "updated_date": {
+    "$date": "2021-12-07T22:54:27.142Z"
+  },
+  "__v": 0
+}]
