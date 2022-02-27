@@ -13,6 +13,7 @@
     <router-link class="btn btn-primary" to="Signup"> Créer un compte Utilisateur</router-link> <br> <br>
     <router-link class="btn btn-primary" to="group"> Liste des Groupes</router-link> <br> <br>
     <router-link class="btn btn-primary" to="CreateGroup"> Créer un Groupe</router-link> <br> <br>
+    <router-link class="btn btn-primary" to="Correction"> Corriger un questionnaire</router-link> <br> <br>
     <router-link class="btn btn-primary" to="Dashboard">Statistique</router-link> <br> <br>
 
 

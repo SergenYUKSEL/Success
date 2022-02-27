@@ -73,7 +73,7 @@
       </b-dropdown-group>
       <b-dropdown-group id="dropdown-group-6" header="Correction">
         <b-dropdown-item-button>
-          <router-link to="">Correction des questionnaires</router-link>
+          <router-link to="Correction">Correction des questionnaires</router-link>
         </b-dropdown-item-button>
       </b-dropdown-group>
       <b-dropdown-divider></b-dropdown-divider>
@@ -82,7 +82,7 @@
       </b-dropdown-item-button>
   </b-nav-item-dropdown>
     <b-nav-item v-if="Log === 'true'" class="m-2">
-      <router-link to="logout">Déconnexion</router-link>
+      <router-link class="logout-btn" to="logout">Déconnexion</router-link>
 </b-nav-item>
     </b-navbar-nav>
   </b-navbar>
@@ -139,5 +139,8 @@ export default {
 .nav-item a:hover {
 
   text-decoration: none
+}
+.logout-btn {
+  color: white;
 }
 </style>
