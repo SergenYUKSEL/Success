@@ -183,6 +183,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/DashboardCollab.vue')
   
   },
+  {
+    path: '/createsuggestion',
+    name: 'CreateSuggestion',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CreateSuggestion.vue')
+  
+  },
+  {
+    path: '/suggestion',
+    name: 'suggestion',
+    component: () => import(/* webpackChunkName: "about" */ '../views/suggestion.vue')
+  
+  },
+  {
+    path: '/showsuggestion/:id',
+    name: 'ShowSuggestion',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ShowSuggestion.vue')
+  
+  },
  
   
 
