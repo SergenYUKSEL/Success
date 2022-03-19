@@ -7,7 +7,7 @@
       </h2>
       <b-jumbotron>
         <template slot="lead">
-          Nom de la question: {{suggestion.question}}<br>
+          Nom de la question: {{suggestion.questionName}}<br>
           Catégorie: {{suggestion.questionCategory}}<br>
           Réponse: {{suggestion.questionAnswer}}<br>
         </template>
@@ -16,7 +16,12 @@
           Updated Date: {{suggestion.updated_date}}
         </p>
        <!-- <b-btn variant="success" @click.stop="editquestion(suggestion._id)">Edit</b-btn> -->
-        <b-btn variant="danger" @click.stop="deletequestion(suggestion._id)">Delete</b-btn>
+       
+         <b-form @submit="onSubmit">
+       
+        <b-button  type="submit" variant="primary">Valid</b-button>
+         <b-btn variant="danger" @click.stop="deletequestion(suggestion._id)">Delete</b-btn>
+      </b-form>
       </b-jumbotron>
     </b-col>
   </b-row>
@@ -32,7 +37,9 @@ export default {
   name: 'ShowSuggestion',
   data () {
     return {
-      suggestion: []
+      suggestion: [],
+      question: {},
+      categories: [],
     }
   },
   created () {
@@ -50,16 +57,40 @@ export default {
     })
     .catch(e => {
       this.errors.push(e)
+    }),
+    axios.get(`http://`+ Address.ip +`/api/category`)
+    .then(response => {
+      this.categories = response.data
+      
+    })
+    .catch(e => {
+      this.errors.push(e)
     })
     )
   },
   methods: {
+     onSubmit (evt) {
+      evt.preventDefault()
+      axios.post(`http://`+ Address.ip +`/api/question/create/`, this.suggestion)
+      .then(response => {
+        axios.delete(`http://`+ Address.ip +`/api/suggestion/delete` + this.$route.params.id)
+        this.$router.push({
+          name: 'ShowQuestion',
+          params: { id: response.data.id }
+        })
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+    
+    },
     editquestion (suggestionid) {
       this.$router.push({
         name: 'ModifySuggestion',
         params: { id: suggestionid }
       })
     },
+    
     deletequestion (suggestionid) {
       axios.delete(`http://`+ Address.ip +`/api/suggestion/delete` + suggestionid)
       .then((result) => {

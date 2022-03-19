@@ -33,7 +33,7 @@ export default {
   data () {
     return {
       fields: [
-        'question',
+        'questionName',
         'questionCategory',
         'actions'        
       ],

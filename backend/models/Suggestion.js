@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 
 var suggestionSchema = new mongoose.Schema({
     
-    question: String,
+    questionName: String,
     questionAnswer: String,
     questionCategory: String,
-    questionStatus : String,
+    questionContent : String,
+    questionPoint : Number,
     updated_date: { type: Date, default: Date.now },
 });
 

@@ -2,10 +2,11 @@ const Suggestion = require('../models/Suggestion');
 
 exports.createSuggestion = (req, res, next) => {
   const suggestion = new Suggestion({
-    question: req.body.question,
+    questionName: req.body.questionName,
     questionAnswer: req.body.questionAnswer,
     questionCategory: req.body.questionCategory,
-    questionStatus : req.body.questionStatus,
+    questionContent: req.body.questionContent,
+    questionPoint: req.body.questionPoint,
     updated_date: req.body.updated_date,
     
   });
@@ -47,10 +48,12 @@ exports.getOneSuggestion = (req, res, next) => {
 exports.modifySuggestion = (req, res, next) => {
   const suggestion = new Suggestion({
     _id: req.params.id,
-    question: req.body.question,
+    questionName: req.body.questionName,
     questionAnswer: req.body.questionAnswer,
     questionCategory: req.body.questionCategory,
-    questionStatus: req.body.questionStatus,
+    questionContent: req.body.questionContent,
+    questionPoint: req.body.questionPoint,
+
     updated_date: req.body.updated_date
   });
   Suggestion.updateOne({_id: req.params.id}, suggestion).then(
