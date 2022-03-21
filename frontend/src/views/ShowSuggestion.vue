@@ -9,6 +9,8 @@
         <template slot="lead">
           Nom de la question: {{suggestion.questionName}}<br>
           Catégorie: {{suggestion.questionCategory}}<br>
+          Contenue : {{suggestion.questionContent}} <br>
+          Point : {{suggestion.questionPoint}}
           Réponse: {{suggestion.questionAnswer}}<br>
         </template>
         <hr class="my-4">
