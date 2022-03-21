@@ -10,8 +10,10 @@
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Nom">
-          <b-form-input v-model.trim="group.groupName"></b-form-input>
+                  label="Name">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the group name..." v-model.trim="group.groupName"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-button type="submit" variant="primary">Update</b-button>
         <b-button type="button" variant="success" @click="$router.go(-1)">Cancel</b-button>

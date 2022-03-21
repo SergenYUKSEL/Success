@@ -22,8 +22,8 @@
         <hr class="my-4">
         <div v-for="users in user" :key="users._id">
         <b-btn variant="success" @click.stop="edituser(users._id)">Edit</b-btn>
-        <b-btn variant="danger" @click.stop="deleteuser(users._id)">Delete</b-btn>
-        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
+        <b-btn variant="danger" style="margin-left: 5vh;" @click.stop="deleteuser(users._id)">Delete</b-btn>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
        
         </div>
       </b-jumbotron>

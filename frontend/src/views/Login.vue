@@ -11,15 +11,19 @@
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Enter Email">
-          <b-form-input id="email" v-model.trim="user.email"></b-form-input>
+                  label="Email">
+          <b-col sm="9">
+            <b-form-input type="email" placeholder="Enter your email address..." id="email" v-model.trim="user.email"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Enter Password">
-          <b-form-input type="password" id="password" v-model.trim="user.password"></b-form-input>
+                  label="Password">
+          <b-col sm="9">
+            <b-form-input type="password" placeholder="Enter your password..." id="password" v-model.trim="user.password"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-button type="submit" variant="primary">Login</b-button>
       </b-form>

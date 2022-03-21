@@ -22,8 +22,8 @@
          <b-form @submit="onSubmit">
        
         <b-button  type="submit" variant="primary">Valid</b-button>
-         <b-btn variant="danger" @click.stop="deletequestion(suggestion._id)">Delete</b-btn>
-         <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
+         <b-btn variant="danger" style="margin-left: 5vh;" @click.stop="deletequestion(suggestion._id)">Delete</b-btn>
+         <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
       </b-form>
       </b-jumbotron>
     </b-col>

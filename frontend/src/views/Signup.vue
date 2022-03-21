@@ -13,45 +13,57 @@
                   :label-cols="4"
                   breakpoint="md"
                   label="Group">
-          <b-form-select v-model="user.group" size="sm" class="mt-3">
-           <option v-for="group in groups" :key="group._id" :value="group._id" > {{group.groupName}}</option>
-          </b-form-select>
+          <b-col sm="9">
+            <b-form-select v-model="user.group" size="sm" class="mt-3">
+              <option v-for="group in groups" :key="group._id" :value="group._id" > {{group.groupName}}</option>
+            </b-form-select>
+          </b-col>
         </b-form-group>
         <b-form-group v-if="user.group" id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Rôle">
-          <b-form-select v-model.trim="user.role" :options="options" size="sm" class="mt-3">
-          </b-form-select>
+                  label="Role">
+          <b-col sm="9">
+            <b-form-select v-model.trim="user.role" :options="options" size="sm" class="mt-3">
+            </b-form-select>
+          </b-col>
         </b-form-group>
         <b-form-group v-if="user.group" id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Enter Email">
-          <b-form-input id="email" v-model.trim="user.email"></b-form-input>
+                  label="Email">
+          <b-col sm="9">
+            <b-form-input id="email" placeholder="Enter your email address..." v-model.trim="user.email"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group v-if="user.group" id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Enter Password">
-          <b-form-input type="password" id="password" v-model.trim="user.password"></b-form-input>
+                  label="Password">
+          <b-col sm="9">
+            <b-form-input type="password" placeholder="Enter your password..." id="password" v-model.trim="user.password"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group v-if="user.group" id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Enter Lastname">
-          <b-form-input type="text" id="lastname" v-model.trim="user.lastname"></b-form-input>
+                  label="Lastname">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter your lastname ..." id="lastname" v-model.trim="user.lastname"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group v-if="user.group" id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Enter Firstname">
-          <b-form-input  type="text" id="firstname" v-model.trim="user.firstname"></b-form-input>
+                  label="Firstname">
+          <b-col sm="9">
+            <b-form-input  type="text" placeholder="Enter your firstname ..." id="firstname" v-model.trim="user.firstname"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-button type="submit" variant="primary">Sign Up</b-button>
         <b-button type="button" variant="success" @click="$router.go(-1)">Cancel</b-button>

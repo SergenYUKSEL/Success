@@ -10,11 +10,13 @@
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Nom">
-          <b-form-input v-model.trim="group.groupName"></b-form-input>
+                  label="Name">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the group name..." v-model.trim="group.groupName"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-button type="submit" variant="primary">Save</b-button>
-        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
       </b-form>
     </b-col>
   </b-row>

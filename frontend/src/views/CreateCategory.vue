@@ -10,22 +10,26 @@
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Nom">
-          <b-form-input v-model.trim="category.name"></b-form-input>
+                  label="Name">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the category name..." v-model.trim="category.name"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
                   label="Description">
-            <b-form-textarea id="description"
-                       v-model="category.description"
-                       placeholder="La description de la catégorie"
-                       :rows="2"
-                       :max-rows="6">{{category.description}}</b-form-textarea>
+            <b-col sm="9">
+              <b-form-textarea id="description"
+                        v-model="category.description"
+                        placeholder="Enter the category description..."
+                        :rows="2"
+                        :max-rows="6">{{category.description}}</b-form-textarea>
+            </b-col>
         </b-form-group>
         <b-button type="submit" variant="primary">Save</b-button>
-        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
       </b-form>
     </b-col>
   </b-row>

@@ -18,8 +18,8 @@
           Updated Date: {{category.updated_date}}
         </p>
         <b-btn variant="success" @click.stop="editcategory(category._id)">Edit</b-btn>
-        <b-btn variant="danger" @click.stop="deletecategory(category._id)">Delete</b-btn>
-        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
+        <b-btn variant="danger" style="margin-left: 5vh;" @click.stop="deletecategory(category._id)">Delete</b-btn>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
       </b-jumbotron>
     </b-col>
   </b-row>

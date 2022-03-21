@@ -80,6 +80,12 @@
       <b-dropdown-item-button>
         <router-link to="Dashboard">Statistique</router-link>
       </b-dropdown-item-button>
+        <b-dropdown-item-button>
+        <router-link to="surveypass">Liste des questionnaires réalisé</router-link>
+      </b-dropdown-item-button>
+        <b-dropdown-item-button>
+        <router-link to="suggestion">Boîte à idées</router-link>
+      </b-dropdown-item-button>
   </b-nav-item-dropdown>
     <b-nav-item v-if="Log === 'true'" class="m-2">
       <router-link class="logout-btn" to="logout">Déconnexion</router-link>

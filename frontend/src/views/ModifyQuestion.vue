@@ -10,36 +10,46 @@
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Nom">
-          <b-form-input v-model.trim="question.questionName"></b-form-input>
+                  label="Name">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the question name..." v-model.trim="question.questionName"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Contenue">
-          <b-form-input v-model.trim="question.questionContent"></b-form-input>
+                  label="Content">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the question content..." v-model.trim="question.questionContent"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Catégorie">
-          <b-form-input v-model.trim="question.questionCategory"></b-form-input>
+                  label="Category">
+          <b-col sm="9">
+            <b-form-input placeholder="Enter the question category..." v-model.trim="question.questionCategory"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
                   label="Points">
-          <b-form-input v-model.trim="question.questionPoint"></b-form-input>
+          <b-col sm="9">
+            <b-form-input type="number" placeholder="Enter the question point..." v-model.trim="question.questionPoint"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Réponse">
-          <b-form-input v-model.trim="question.questionAnswer"></b-form-input>
+                  label="Answer">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the question answer..." v-model.trim="question.questionAnswer"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-button type="submit" variant="primary">Update</b-button>
         <b-button type="button" variant="success" @click="$router.go(-1)">Cancel</b-button>

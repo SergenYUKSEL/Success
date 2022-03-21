@@ -26,7 +26,7 @@
           Si votre note n'apparait pas, alors elle n'est pas encore corrigé. <br>
           <br>
           
-          <a type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
+          <a type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
       </div>
         </template>
         

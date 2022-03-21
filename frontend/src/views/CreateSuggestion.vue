@@ -9,41 +9,51 @@
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Catégorie">
-          <b-form-select v-model="suggestion.questionCategory" size="sm" class="mt-3">
-           <option v-for="category in categories"  :key="category.name">{{category.name}}</option>
-          </b-form-select>
+                  label="Category">
+          <b-col sm="9">
+            <b-form-select v-model="suggestion.questionCategory" size="sm" class="mt-3">
+              <option v-for="category in categories"  :key="category.name">{{category.name}}</option>
+            </b-form-select>
+          </b-col>
         </b-form-group>
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Question :">
-          <b-form-input v-model.trim="suggestion.questionName"></b-form-input>
+                  label="Question">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the question name..." v-model.trim="suggestion.questionName"></b-form-input>
+          </b-col>
         </b-form-group>
          <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Content :">
-          <b-form-input v-model.trim="suggestion.questionContent"></b-form-input>
+                  label="Content">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the question content..." v-model.trim="suggestion.questionContent"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Réponse :">
-          <b-form-input v-model.trim="suggestion.questionAnswer"></b-form-input>
+                  label="Answer">
+          <b-col sm="9">
+            <b-form-input type="text" placeholder="Enter the question answer..." v-model.trim="suggestion.questionAnswer"></b-form-input>
+          </b-col>
         </b-form-group>
          <b-form-group id="fieldsetHorizontal"
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Point :">
-          <b-form-input v-model.trim="suggestion.questionPoint"></b-form-input>
+                  label="Points">
+          <b-col sm="9">
+            <b-form-input type="number" placeholder="Enter the question points..."  v-model.trim="suggestion.questionPoint"></b-form-input>
+          </b-col>
         </b-form-group>
         <b-button type="submit" variant="primary">Save</b-button>
-         <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
+         <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
       </b-form>
     </b-col>
   </b-row>
