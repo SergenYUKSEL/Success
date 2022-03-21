@@ -3,72 +3,72 @@
     <div>
   <b-navbar  type="dark" variant="dark">
     <b-navbar-nav>
-      <b-nav-item href="#" v-if="Log != 'true'" class="m-2">Connexion</b-nav-item>
+      <b-nav-item href="#" v-if="Log != 'true'" class="m-4 log-btn">Login</b-nav-item>
       <b-nav-item v-else class="m-2">           </b-nav-item>
 
-      <b-nav-item-dropdown v-if="Log === 'true' && Role === 'collaborator'" text="Collaborateur" class="m-2" right>
+      <b-nav-item-dropdown v-if="Log === 'true' && Role === 'collaborator'" text="Collaborator" class="m-4" right>
         <b-dropdown-item>
           <router-link  to="collaborator">
             {{user[0].lastname + ' ' + user[0].firstname}}
           </router-link>
         </b-dropdown-item>
         <b-dropdown-item>
-          <router-link to="passsurvey">Passer un questionnaire</router-link>
+          <router-link to="passsurvey">Pass a Quizz</router-link>
         </b-dropdown-item>
         <b-dropdown-item>
-          <router-link to="listCorrection">Afficher les quizz dèja réalisé</router-link>
+          <router-link to="listCorrection">Display the Quizzes already made</router-link>
         </b-dropdown-item>
         <b-dropdown-item>
-          <router-link to="DashboardCollab">Statistique</router-link>
+          <router-link to="DashboardCollab">Statistics</router-link>
         </b-dropdown-item>
       </b-nav-item-dropdown>
 
 
-  <b-nav-item-dropdown v-if="Log === 'true' && Role === 'corrector'" text="Correcteur" id="dropdown-grouped"  class="m-2" right>
+  <b-nav-item-dropdown v-if="Log === 'true' && Role === 'corrector'" text="Corrector" id="dropdown-grouped"  class="m-4" right>
       <b-dropdown-item-button>
         <router-link to="corrector">
           {{user[0].lastname + ' ' + user[0].firstname}}
         </router-link>
       </b-dropdown-item-button>
       <b-dropdown-divider></b-dropdown-divider>
-      <b-dropdown-group id="dropdown-group-1" header="Categorie">
+      <b-dropdown-group id="dropdown-group-1" header="Category">
         <b-dropdown-item-button>
-          <router-link to="createcategory" >Création d'une catégorie</router-link>
+          <router-link to="createcategory" >Create a Category</router-link>
         </b-dropdown-item-button>
         <b-dropdown-item-button>
-          <router-link to="category">Liste des catégories</router-link>
+          <router-link to="category">List of Categories</router-link>
         </b-dropdown-item-button>
       </b-dropdown-group>
       <b-dropdown-group id="dropdown-group-2" header="Question">
         <b-dropdown-item-button>
-          <router-link to="createquestion">Création d'une question</router-link>
+          <router-link to="createquestion">Create a Question</router-link>
         </b-dropdown-item-button>
         <b-dropdown-item-button>
-          <router-link to="question">Liste des questions</router-link>
-        </b-dropdown-item-button>
-      </b-dropdown-group>
-      <b-dropdown-group id="dropdown-group-3" header="Questionnaire">
-        <b-dropdown-item-button>
-          <router-link to="createsurvey" >Création d'un questionnaire</router-link>
-        </b-dropdown-item-button>
-        <b-dropdown-item-button>
-          <router-link to="survey">Liste des questionnaires</router-link>
+          <router-link to="question">List of Questions</router-link>
         </b-dropdown-item-button>
       </b-dropdown-group>
-      <b-dropdown-group id="dropdown-group-4" header="Groupe">
+      <b-dropdown-group id="dropdown-group-3" header="Quizzes">
         <b-dropdown-item-button>
-          <router-link to="creategroup">Création d'un groupe</router-link>
+          <router-link to="createsurvey" >Create a Quizz</router-link>
         </b-dropdown-item-button>
         <b-dropdown-item-button>
-          <router-link to="group">Liste des groupes</router-link>
+          <router-link to="survey">List of Surveys</router-link>
         </b-dropdown-item-button>
       </b-dropdown-group>
-      <b-dropdown-group id="dropdown-group-5" header="Utilisateur">
+      <b-dropdown-group id="dropdown-group-4" header="Groups">
         <b-dropdown-item-button>
-          <router-link to="signup" >Création d'une compte</router-link>
+          <router-link to="creategroup">Create a Group</router-link>
         </b-dropdown-item-button>
         <b-dropdown-item-button>
-          <router-link to="user">Liste des utilisateurs</router-link>
+          <router-link to="group">List of Groups</router-link>
+        </b-dropdown-item-button>
+      </b-dropdown-group>
+      <b-dropdown-group id="dropdown-group-5" header="Users">
+        <b-dropdown-item-button>
+          <router-link to="signup" >Create a User account</router-link>
+        </b-dropdown-item-button>
+        <b-dropdown-item-button>
+          <router-link to="user">List of Users account</router-link>
         </b-dropdown-item-button>
       </b-dropdown-group>
       <b-dropdown-group id="dropdown-group-6" header="Correction">
@@ -78,17 +78,17 @@
       </b-dropdown-group>
       <b-dropdown-divider></b-dropdown-divider>
       <b-dropdown-item-button>
-        <router-link to="Dashboard">Statistique</router-link>
+        <router-link to="Dashboard">Statistics</router-link>
       </b-dropdown-item-button>
         <b-dropdown-item-button>
-        <router-link to="surveypass">Liste des questionnaires réalisé</router-link>
+        <router-link to="surveypass">List of Quizz completed by employees</router-link>
       </b-dropdown-item-button>
         <b-dropdown-item-button>
-        <router-link to="suggestion">Boîte à idées</router-link>
+        <router-link to="suggestion">Ideas box</router-link>
       </b-dropdown-item-button>
   </b-nav-item-dropdown>
-    <b-nav-item v-if="Log === 'true'" class="m-2">
-      <router-link class="logout-btn" to="logout">Déconnexion</router-link>
+    <b-nav-item v-if="Log === 'true'" class="m-4">
+      <router-link class="log-btn" to="logout">Logout</router-link>
 </b-nav-item>
     </b-navbar-nav>
   </b-navbar>
@@ -143,8 +143,14 @@ export default {
 }
 */
 .nav-item a:hover {
-
-  text-decoration: none
+  text-decoration: none;
+  color: #2c3e50;
+}
+.nav-item a {
+  color: #2c3e50;
+}
+.log-btn {
+  color: #fff !important;
 }
 .logout-btn {
   color: white;
