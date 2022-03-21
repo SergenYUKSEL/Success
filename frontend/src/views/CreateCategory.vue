@@ -25,6 +25,7 @@
                        :max-rows="6">{{category.description}}</b-form-textarea>
         </b-form-group>
         <b-button type="submit" variant="primary">Save</b-button>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
       </b-form>
     </b-col>
   </b-row>
@@ -52,6 +53,7 @@ export default {
     axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
   },
   methods: {
+    
     onSubmit (evt) {
       evt.preventDefault()
       axios.post(`http://`+ Address.ip +`/api/category/create/`, this.category)
@@ -64,7 +66,12 @@ export default {
       .catch(e => {
         this.errors.push(e)
       })
-    }
+    },
+     Returnbehind() {
+        this.$router.push({
+          name: 'Corrector',
+        })
+      }
   }
 }
 </script>

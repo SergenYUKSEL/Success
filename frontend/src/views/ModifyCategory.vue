@@ -25,6 +25,7 @@
                        :max-rows="6">{{category.description}}</b-form-textarea>
         </b-form-group>
         <b-button type="submit" variant="primary">Update</b-button>
+        <b-button type="button" variant="success" @click="$router.go(-1)">Cancel</b-button>
       </b-form>
     </b-col>
   </b-row>

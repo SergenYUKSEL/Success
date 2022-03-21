@@ -42,6 +42,7 @@
           <b-form-input v-model.trim="question.questionAnswer"></b-form-input>
         </b-form-group>
         <b-button type="submit" variant="primary">Update</b-button>
+        <b-button type="button" variant="success" @click="$router.go(-1)">Cancel</b-button>
       </b-form>
     </b-col>
   </b-row>

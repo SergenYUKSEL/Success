@@ -15,6 +15,7 @@
     <router-link class="btn btn-primary" to="CreateGroup"> Créer un Groupe</router-link> <br> <br>
     <router-link class="btn btn-primary" to="Correction"> Corriger un questionnaire</router-link> <br> <br>
     <router-link class="btn btn-primary" to="Dashboard">Statistique</router-link> <br> <br>
+     <router-link class="btn btn-primary" to="surveypass">Liste des questionnaires réalisés par les collaborateurs</router-link> <br> <br>
     <router-link class="btn btn-primary" to="suggestion">Boîte à idées</router-link> <br> <br>
 
 

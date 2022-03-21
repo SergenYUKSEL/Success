@@ -22,7 +22,9 @@
         <hr class="my-4">
         <div v-for="users in user" :key="users._id">
         <b-btn variant="success" @click.stop="edituser(users._id)">Edit</b-btn>
-       <b-btn variant="danger" @click.stop="deleteuser(users._id)">Delete</b-btn>
+        <b-btn variant="danger" @click.stop="deleteuser(users._id)">Delete</b-btn>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
+       
         </div>
       </b-jumbotron>
     </b-col>
@@ -84,7 +86,12 @@ export default {
       .catch(e => {
         this.errors.push(e)
       })
-    }
+    },
+     Returnbehind() {
+        this.$router.push({
+          name: 'user',
+        })
+      }
   }
 }
 </script>

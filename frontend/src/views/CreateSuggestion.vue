@@ -43,6 +43,7 @@
           <b-form-input v-model.trim="suggestion.questionPoint"></b-form-input>
         </b-form-group>
         <b-button type="submit" variant="primary">Save</b-button>
+         <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
       </b-form>
     </b-col>
   </b-row>
@@ -98,7 +99,12 @@ export default {
         this.errors.push(e)
       })
     
-    }
+    },
+    Returnbehind() {
+        this.$router.push({
+          name: 'Collaborator',
+        })
+      }
   }
 }
 </script>

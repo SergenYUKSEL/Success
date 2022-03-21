@@ -25,6 +25,7 @@
         <hr class="my-4">
         <b-btn variant="success" @click.stop="editsurvey(survey._id)">Edit</b-btn>
         <b-btn variant="danger" @click.stop="deletesurvey(survey._id)">Delete</b-btn>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
       </b-jumbotron>
     </b-col>
   </b-row>
@@ -79,7 +80,12 @@ export default {
       .catch(e => {
         this.errors.push(e)
       })
-    }
+    },
+    Returnbehind() {
+        this.$router.push({
+          name: 'survey',
+        })
+      }
   }
 }
 </script>

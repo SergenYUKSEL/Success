@@ -23,6 +23,7 @@
        
         <b-button  type="submit" variant="primary">Valid</b-button>
          <b-btn variant="danger" @click.stop="deletequestion(suggestion._id)">Delete</b-btn>
+         <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Revenir en arrière</a>
       </b-form>
       </b-jumbotron>
     </b-col>
@@ -104,7 +105,12 @@ export default {
       .catch(e => {
         this.errors.push(e)
       })
-    }
+    },
+    Returnbehind() {
+        this.$router.push({
+          name: 'suggestion',
+        })
+      }
   }
 }
 </script>

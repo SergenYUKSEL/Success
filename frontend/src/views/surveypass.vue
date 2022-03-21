@@ -36,8 +36,7 @@ export default {
         'userId[0].lastname',
         'userId[0].firstname',
         'surveyId[0].surveyName',
-        'surveyId[0].surveyCategory',
-        'actions'        
+        'surveyId[0].surveyCategory', 
       ],
       surveypasses: [],
       errors: []
