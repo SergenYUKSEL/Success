@@ -1,23 +1,23 @@
 <template>
 <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
     <form-wizard @onComplete="onComplete">
-        <tab-content title="Choisir le collaborateur" :selected="true">
+        <tab-content title="Choose the collaborator" :selected="true">
            <div class="form-group">
-                <label for="fullName">Groupe</label>
+                <label for="fullName">Group</label>
                 <select type="text" class="form-control" placeholder="" v-model="groupe">
                   <option v-for="group in groups" :key="group._id" :value="group._id" > {{group.groupName}}</option>
                 </select>
             </div>
                 <div class="form-group" v-if="groupe">    
-                    <label for="">Collaborateur</label>
+                    <label for="">Collaborator</label>
                     <select class="form-control" v-model="users.name " >
                         <option v-for="user in users" :key="user._id" :value="user._id" v-if="user.group[0]._id === groupe && user.role == 'collaborator'"> {{user.lastname + ' ' + user.firstname}}</option>
                     </select>
                 </div>
         </tab-content>
-        <tab-content title="Choisir le questionnaire"> 
+        <tab-content title="Choose the quizz"> 
             <div class="form-group">    
-                    <label for="">Questionnaire</label>
+                    <label for="">Quizz</label>
                     <select class="form-control" v-model="surveycorrect.surveypassId " >
                         <option v-for="surveypass in surveypasses" :key="surveypass._id" :value="surveypass._id" v-if="surveypass.userId[0]._id === users.name">{{surveypass.surveyId[0].surveyName}}</option>
                     </select>
@@ -30,12 +30,12 @@
                 <b>Total points :</b> {{surveypass.surveyId[0].point}} pts
             </div>
         </tab-content>
-        <tab-content title="Saisir la note">
+        <tab-content title="Enter the note">
             <div class="form-group">
-                <label>Note de l'élève</label>
-                <input type="number" name="note" v-model="surveycorrect.note">
+                <label>Collaborator's note</label>
+                <input class="m-2" type="number" name="note" v-model="surveycorrect.note">
             </div>
-             <button v-on:click="onComplete"> Envoyer</button>
+             <button class="btn btn-primary btn-send" v-on:click="onComplete">SEND</button>
         </tab-content>
        
     </form-wizard>
@@ -113,5 +113,15 @@ methods: {
 </script>
 
 <style>
-
+.step-button-submit {
+  visibility: hidden;
+  /* disable submit button by wizard */
+}
+.step-button-previous, .step-button-next {
+  cursor: pointer;
+}
+.btn-send {
+  cursor: pointer;
+  font-weight: bold;
+}
 </style>

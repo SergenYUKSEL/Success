@@ -16,7 +16,7 @@
             <div class="form-group" v-for="survey in surveys" :key="survey.id" v-if="surveypass.surveyId === survey._id">
               <Questions :questions="survey.question" :reponse="survey.reponse"  v-on="surveypass.reponse = survey.reponse" v-model="surveypass.reponse"></Questions>
             </div>
-            <button class="btn btn-primary" v-on:click="onComplete"> Envoyer</button>
+            <button class="btn btn-primary btn-send" v-on:click="onComplete">SEND</button>
         </tab-content>
     </form-wizard>
 </template>
@@ -99,7 +99,14 @@ export default {
 
 <style>
 .step-button-submit {
-  visibility: hidden !important;
+  visibility: hidden;
+}
+.step-button-previous, .step-button-next {
+  cursor: pointer;
+}
+.btn-send {
+  cursor: pointer;
+  font-weight: bold;
 }
 .no-visible {
   visibility: hidden;
