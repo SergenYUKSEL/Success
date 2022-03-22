@@ -2,31 +2,31 @@
 <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
     <b-row>
     <b-col cols="12">
-      <h2>
-        La correction de votre questionnaire
+      <h2 class="title-correct">
+        The correction of your survey
       </h2>
       <b-jumbotron>
         <template slot="header">
         </template>
         <template slot="lead">
       <div v-for="surveypass in surveypasses" :key="surveypass._id" v-if="surveypass._id === thesurveyid">
-          Nom du questionnaire : {{surveypass.surveyId[0].surveyName}}<br> <br>
-          Nombre de questions : {{surveypass.surveyId[0].question.length}} <br>
+          <span class="subtitle-survey">Name : </span>{{surveypass.surveyId[0].surveyName}}<br> <br>
+          <span class="subtitle-survey">Number of questions : </span>{{surveypass.surveyId[0].question.length}} <br>
           <hr class="my-4">
           <div v-for="(question,q) in surveypass.surveyId[0].question" :key="q">
-            Question n°{{q+1}} ({{question.questionPoint}}pts) : {{question.questionContent}} <br>
-            Résultat de l'élève : {{surveypass.reponse[q]}} <br>
-            Resultat Attendu : {{question.questionAnswer}} <br>
+             <span class="subtitle-survey">Question n°{{q+1}} ({{question.questionPoint}}pts) : </span>{{question.questionContent}} <br>
+             <span class="subtitle-survey">Collaborator's response : </span>{{surveypass.reponse[q]}} <br>
+             <span class="subtitle-survey">Answer expected : </span>{{question.questionAnswer}} <br>
             <hr class="my-4">
           </div>
           <div v-for="(surveycorrect, s) in surveycorrected" v-if="surveycorrect.surveypassId[0]._id === thesurveyid" :key="s._id">
-            Note : {{surveycorrect.note}} / {{surveypass.surveyId[0].point}}
+             <span class="subtitle-survey">Note : </span>{{surveycorrect.note}} / {{surveypass.surveyId[0].point}}
             
           </div>
-          Si votre note n'apparait pas, alors elle n'est pas encore corrigé. <br>
+           <span class="subtitle-survey">If your note does not appear, then it is not yet corrected.</span> <br>
           <br>
           
-          <a type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
+          <a type="button" v-on:click="Returnbehind()" class="btn btn-primary cold btn-cursor">Go back</a>
       </div>
         </template>
         
@@ -89,4 +89,14 @@
   a:hover{
     color: gray;
   }
+  .subtitle-survey {
+    font-weight: bold;
+    font-size: 22px;
+  }
+  .title-correct {
+    font-weight: bold;
+  }
+  .btn-cursor {
+  cursor: pointer;
+}
 </style>

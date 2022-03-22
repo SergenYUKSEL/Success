@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
     <form-wizard @onComplete="onComplete">
-        <tab-content title="Choix du questionnaire" :selected="true">
+        <tab-content title="Choice of Survey" :selected="true">
             <div class="form-group">
                 <label for="fullName">Code</label>
                 <select type="text" class="form-control" placeholder="Enter your name" v-model="surveypass.surveyId">
@@ -12,7 +12,7 @@
                 <input class="form-control " type="hidden" v-model="surveypass.userId" >
             </div>
         </tab-content>
-        <tab-content title="Réponse aux questionnaires"> 
+        <tab-content title="Answer to the Survey"> 
             <div class="form-group" v-for="survey in surveys" :key="survey.id" v-if="surveypass.surveyId === survey._id">
               <Questions :questions="survey.question" :reponse="survey.reponse"  v-on="surveypass.reponse = survey.reponse" v-model="surveypass.reponse"></Questions>
             </div>

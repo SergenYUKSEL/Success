@@ -18,7 +18,7 @@
         </p>
         <b-btn variant="success" @click.stop="editgroup(group._id)">Edit</b-btn>
         <b-btn variant="danger" style="margin-left: 5vh;" @click.stop="deletegroup(group._id)">Delete</b-btn>
-        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold btn-cursor">Go back</a>
       </b-jumbotron>
     </b-col>
   </b-row>
@@ -87,4 +87,7 @@ export default {
   .jumbotron {
     padding: 2rem;
   }
+  .btn-cursor {
+  cursor: pointer;
+}
 </style>

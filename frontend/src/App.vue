@@ -13,7 +13,7 @@
           </router-link>
         </b-dropdown-item>
         <b-dropdown-item>
-          <router-link to="passsurvey">Pass a Quizz</router-link>
+          <router-link to="passsurvey">Pass a Survey</router-link>
         </b-dropdown-item>
         <b-dropdown-item>
           <router-link to="listCorrection">Display the Quizzes already made</router-link>
@@ -49,7 +49,7 @@
       </b-dropdown-group>
       <b-dropdown-group id="dropdown-group-3" header="Quizzes">
         <b-dropdown-item-button>
-          <router-link to="createsurvey" >Create a Quizz</router-link>
+          <router-link to="createsurvey" >Create a Survey</router-link>
         </b-dropdown-item-button>
         <b-dropdown-item-button>
           <router-link to="survey">List of Surveys</router-link>
@@ -81,7 +81,7 @@
         <router-link to="Dashboard">Statistics</router-link>
       </b-dropdown-item-button>
         <b-dropdown-item-button>
-        <router-link to="surveypass">List of Quizz completed by employees</router-link>
+        <router-link to="surveypass">List of Survey completed by employees</router-link>
       </b-dropdown-item-button>
         <b-dropdown-item-button>
         <router-link to="suggestion">Ideas box</router-link>

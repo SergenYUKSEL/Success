@@ -23,7 +23,7 @@
        
         <b-button  type="submit" variant="primary">Valid</b-button>
          <b-btn variant="danger" style="margin-left: 5vh;" @click.stop="deletequestion(suggestion._id)">Delete</b-btn>
-         <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
+         <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold btn-cursor">Go back</a>
       </b-form>
       </b-jumbotron>
     </b-col>
@@ -119,4 +119,7 @@ export default {
   .jumbotron {
     padding: 2rem;
   }
+  .btn-cursor {
+  cursor: pointer;
+}
 </style>

@@ -25,7 +25,7 @@
             <b-form-input type="password" placeholder="Enter your password..." id="password" v-model.trim="user.password"></b-form-input>
           </b-col>
         </b-form-group>
-        <b-button type="submit" variant="primary">Login</b-button>
+        <b-button class="btn-cursor" type="submit" variant="primary">Login</b-button>
       </b-form>
     </b-col>
   </b-row>
@@ -90,3 +90,8 @@ export default {
   }
 }
 </script>
+<style>
+.btn-cursor {
+  cursor: pointer;
+}
+</style>

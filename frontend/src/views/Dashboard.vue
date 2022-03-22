@@ -1,13 +1,13 @@
 <template>
     <b-container class="bv-example-row">
-        <h1>Statistique de l'application web coté Correcteur</h1> <br><br>
+        <h1>Statistics of the web application on the Corrector side</h1> <br><br>
         <b-row>
-            <b-col>Questionnaires</b-col>
+            <b-col>Surveys</b-col>
             <b-col>Questions</b-col>
-            <b-col>Catégories</b-col>
-            <b-col>Questionnaires fait</b-col>
-            <b-col>Utilisateurs</b-col>
-            <b-col>Groupes</b-col>
+            <b-col>Categories</b-col>
+            <b-col>Survey already completed</b-col>
+            <b-col>Users</b-col>
+            <b-col>Groups</b-col>
 
         </b-row>
         <hr class="my-4">

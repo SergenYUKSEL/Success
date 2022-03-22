@@ -4,16 +4,16 @@
   <b-row>
     <b-col cols="12">
       <h2>
-        Participer à un questionnaire
+        Participate in a Survey
         
-        <b-link href="/passsurvey">(commencer)</b-link>
+        <b-link href="/passsurvey">(get started)</b-link>
       </h2><br><br>
-      <b><label>Choisir votre questionnaire : </label></b> <br>
+      <b><label>Choose your Survey</label></b> <br>
       <select  v-model="pass">
           <option v-for="(surveypass,j) in surveypasses" :key="j" :value="surveypass._id" v-if="surveypasses[j].userId[0]._id === user">{{surveypass.surveyId[0].surveyName}}</option>
       </select>
       <div class="buttoncorrect">
-      <router-link class="btn btn-primary" v-if="pass" :to="{name:'ShowSurveyCorrect', params: {id :pass}}">Afficher le questionnaire</router-link>
+      <router-link class="btn btn-primary" v-if="pass" :to="{name:'ShowSurveyCorrect', params: {id :pass}}">Show the survey</router-link>
       </div>
       <ul v-if="errors && errors.length">
         <li v-for="error of errors" v-bind:key="error">

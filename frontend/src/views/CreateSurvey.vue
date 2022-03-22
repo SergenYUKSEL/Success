@@ -68,8 +68,8 @@
         </b-form-group>
        
 
-        <b-button type="submit" variant="primary">Save</b-button>
-        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold">Go back</a>
+        <b-button class="btn-cursor" type="submit" variant="primary">Save</b-button>
+        <a style="color : #fff;margin-left: 5vh" type="button" v-on:click="Returnbehind()" class="btn btn-primary cold btn-cursor">Go back</a>
       </b-form>
     </b-col>
   </b-row>
@@ -140,6 +140,8 @@ export default {
   
 }
 </script>
-<style lang="fr">
-
+<style>
+.btn-cursor {
+  cursor: pointer;
+}
 </style>

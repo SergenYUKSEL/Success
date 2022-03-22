@@ -12,7 +12,7 @@ export default {
     created() {
         if (sessionStorage.getItem('Token') != null && sessionStorage.getItem('User') != null && sessionStorage.getItem('Role') != null)   {
             sessionStorage.clear()
-            alert('vous avez été deconnecté avec succès !')
+            alert('you have been successfully disconnected!')
             this.$router.push({
                 name: 'Login'
             })

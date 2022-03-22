@@ -15,9 +15,9 @@
                     </select>
                 </div>
         </tab-content>
-        <tab-content title="Choose the quizz"> 
+        <tab-content title="Choose the Survey"> 
             <div class="form-group">    
-                    <label for="">Quizz</label>
+                    <label for="">Survey</label>
                     <select class="form-control" v-model="surveycorrect.surveypassId " >
                         <option v-for="surveypass in surveypasses" :key="surveypass._id" :value="surveypass._id" v-if="surveypass.userId[0]._id === users.name">{{surveypass.surveyId[0].surveyName}}</option>
                     </select>
