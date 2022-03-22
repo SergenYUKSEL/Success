@@ -20,7 +20,7 @@
                   horizontal
                   :label-cols="4"
                   breakpoint="md"
-                  label="Question">
+                  label="Name">
           <b-col sm="9">
             <b-form-input type="text" placeholder="Enter the question name..." v-model.trim="suggestion.questionName"></b-form-input>
           </b-col>
