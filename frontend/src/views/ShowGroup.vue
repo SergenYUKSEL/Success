@@ -10,7 +10,7 @@
           {{group.groupName}}
         </template>
         <template slot="lead">
-          Nom du groupe: {{group.groupName}}<br>
+          <span class="subtitle-survey">Name: </span>{{group.groupName}}<br>
         </template>
         <hr class="my-4">
         <p>

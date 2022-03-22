@@ -10,11 +10,11 @@
         </template>
         <template slot="lead">
       <div v-for="users in user" :key="users._id">
-          Adresse email: {{users.email}}<br>
-          Nom: {{users.lastname}}<br>
-          Prénom: {{users.firstname}}<br>
+          <span class="subtitle-survey">Email address: </span>{{users.email}}<br>
+          <span class="subtitle-survey">Last name: </span>{{users.lastname}}<br>
+          <span class="subtitle-survey">First name: </span>{{users.firstname}}<br>
           <div v-for="usergroup in users.group" :key="usergroup._id">
-           Groupe {{usergroup.groupName}}
+           <span class="subtitle-survey">Group </span>{{usergroup.groupName}}
           </div>
       </div>
         </template>

@@ -10,11 +10,11 @@
           {{question.questionName}}
         </template>
         <template slot="lead">
-          Nom de la question: {{question.questionName}}<br>
-          Contenue: {{question.questionContent}}<br>
-          Catégorie: {{question.questionCategory}}<br>
-          Points: {{question.questionPoint}}<br>
-          Réponse: {{question.questionAnswer}}<br>
+          <span class="subtitle-survey">Name: </span>{{question.questionName}}<br>
+          <span class="subtitle-survey">Content: </span>{{question.questionContent}}<br>
+          <span class="subtitle-survey">Category: </span>{{question.questionCategory}}<br>
+          <span class="subtitle-survey">Point: </span>{{question.questionPoint}}<br>
+          <span class="subtitle-survey">Answer: </span>{{question.questionAnswer}}<br>
 
         </template>
         <hr class="my-4">
@@ -91,5 +91,8 @@ export default {
 <style>
   .jumbotron {
     padding: 2rem;
+  }
+  .subtitle-survey {
+    font-weight: bold;
   }
 </style>

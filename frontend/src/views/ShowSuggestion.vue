@@ -7,11 +7,11 @@
       </h2>
       <b-jumbotron>
         <template slot="lead">
-          Nom de la question: {{suggestion.questionName}}<br>
-          Catégorie: {{suggestion.questionCategory}}<br>
-          Contenue : {{suggestion.questionContent}} <br>
-          Point : {{suggestion.questionPoint}}
-          Réponse: {{suggestion.questionAnswer}}<br>
+          <span class="subtitle-survey">Name: </span>{{suggestion.questionName}}<br>
+          <span class="subtitle-survey">Category: </span>{{suggestion.questionCategory}}<br>
+          <span class="subtitle-survey">Content : </span>{{suggestion.questionContent}} <br>
+          <span class="subtitle-survey">Point : </span>{{suggestion.questionPoint}}
+          <span class="subtitle-survey">Answer: </span>{{suggestion.questionAnswer}}<br>
         </template>
         <hr class="my-4">
         <p>

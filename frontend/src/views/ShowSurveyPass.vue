@@ -11,14 +11,14 @@
         </template>
         <template slot="lead">
           
-            Name : {{passsurvey}} <br>
-            Code : {{survey.number}} <br>
-            Point : {{survey.point}} <br>
-            Temps : {{survey.time}} <br>
-            Catégorie : {{survey.surveyCategory}} <br><br>
+            <span class="subtitle-survey">Name : </span>{{passsurvey}} <br>
+            <span class="subtitle-survey">Code : </span>{{survey.number}} <br>
+            <span class="subtitle-survey">Point : </span>{{survey.point}} <br>
+            <span class="subtitle-survey">Time : </span>{{survey.time}} <br>
+            <span class="subtitle-survey">Category : </span>{{survey.surveyCategory}} <br><br>
             <div v-for="questions in survey.question" :key="questions._id"> 
               
-              Question  : {{ questions.questionContent }} = {{questions.questionAnswer}} <br>
+              <span class="subtitle-survey">Question  : </span>{{ questions.questionContent }} = {{questions.questionAnswer}} <br>
             </div>
     
         </template>

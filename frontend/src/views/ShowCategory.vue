@@ -10,8 +10,8 @@
           {{category.name}}
         </template>
         <template slot="lead">
-          Nom de la catégorie: {{category.name}}<br>
-          Description: {{category.description}}<br>
+          <span class="subtitle-survey">Name: </span>{{category.name}}<br>
+          <span class="subtitle-survey">Description: </span>{{category.description}}<br>
         </template>
         <hr class="my-4">
         <p>
