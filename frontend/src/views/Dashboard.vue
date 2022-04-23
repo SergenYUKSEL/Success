@@ -41,44 +41,54 @@ export default {
             }
         },
         created() {
+            if(sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator, we move him to home page
+                this.$router.push({
+                    name: 'Collaborator',
+                    })
+                }
+                else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+                this.$router.push({
+                name: 'Login'
+               })
+               }
                 axios.all(
-                    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-                    axios.get(`http://`+ Address.ip +`/api/survey`)
+                    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+                    axios.get(`http://`+ Address.ip +`/api/survey`) // we get all the surveys from the database
                         .then(response => {
                         this.surveys = response.data
                         })
                         .catch(e => {
                         this.errors.push(e)
                         }),
-                    axios.get(`http://`+ Address.ip +`/api/question`)
+                    axios.get(`http://`+ Address.ip +`/api/question`) // we get all the questions from the database
                         .then(response => {
                         this.questions = response.data
                         })
                         .catch(e => {
                         this.errors.push(e)
                         }),
-                    axios.get(`http://`+ Address.ip +`/api/category`)
+                    axios.get(`http://`+ Address.ip +`/api/category`) // we get all the categories from the database
                         .then(response => {
                         this.categories = response.data
                         })
                         .catch(e => {
                         this.errors.push(e)
                         }),
-                    axios.get(`http://`+ Address.ip +`/api/group`)
+                    axios.get(`http://`+ Address.ip +`/api/group`) // we get all the groups from the database
                         .then(response => {
                         this.groups = response.data
                         })
                         .catch(e => {
                         this.errors.push(e)
                         }),
-                    axios.get(`http://`+ Address.ip +`/api/auth`)
+                    axios.get(`http://`+ Address.ip +`/api/auth`) // we get all the users from the database
                         .then(response => {
                         this.users = response.data
                         })
                         .catch(e => {
                         this.errors.push(e)
                         }),
-                    axios.get(`http://`+ Address.ip +`/api/surveypass`)
+                    axios.get(`http://`+ Address.ip +`/api/surveypass`) // we get all the surveys already made from the database
                         .then(response => {
                         this.surveypasses = response.data
                         })

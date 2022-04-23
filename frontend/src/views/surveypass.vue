@@ -43,15 +43,20 @@ export default {
     }
   },
   created () {
-    if(sessionStorage.getItem('Role') === 'collaborator') {
+    if(sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator, we move him to home page
         this.$router.push({
           name: 'Collaborator',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
     axios.all(
-      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-      axios.get(`http://`+ Address.ip +`/api/surveypass`)
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+      axios.get(`http://`+ Address.ip +`/api/surveypass`) // we get all the surveypasses from the database
     .then(response => {
       this.surveypasses = response.data
     })

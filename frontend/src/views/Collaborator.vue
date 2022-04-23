@@ -16,13 +16,13 @@ export default {
     name:"Collaborator",
 
   created() {
-    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
-    if(sessionStorage.getItem('Role') === 'corrector') {
+    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token  // this is the authentication header to make requests from the api
+    if(sessionStorage.getItem('Role') === 'corrector') { // if the user are corrector, we move him to home page
       this.$router.push({
       name: 'Corrector'
     })
     }
-    else if (sessionStorage.getItem('Logged') != "true") {
+    else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
       this.$router.push({
       name: 'Login'
     })

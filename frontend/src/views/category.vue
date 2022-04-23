@@ -31,7 +31,7 @@ export default {
   name: 'ListCategory',
   data () {
     return {
-      fields: [
+      fields: [  // the fields allows to display the different data we select in our table from the collection
         'name',
         'description',
         'actions'        
@@ -41,15 +41,20 @@ export default {
     }
   },
   created () {
-    if(sessionStorage.getItem('Role') === 'collaborator') {
+    if(sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator, we move him to home page
         this.$router.push({
           name: 'Collaborator',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
     axios.all(
-      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-      axios.get(`http://`+ Address.ip +`/api/category`)
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+      axios.get(`http://`+ Address.ip +`/api/category`) // we get all the categories from the database
     .then(response => {
       this.categories = response.data
       
@@ -60,7 +65,7 @@ export default {
     )
   },
   methods: {
-    details (category) {
+    details (category) { // the details method sends the user to the ShowCategory page, with all the information of the selected category
       this.$router.push({
         name: 'ShowCategory',
         params: { id: category._id }

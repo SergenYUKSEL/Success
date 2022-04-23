@@ -50,15 +50,20 @@ export default {
     }
   },
   created () {
-    if(sessionStorage.getItem('Role') === 'collaborator') {
+    if(sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator, we move him to home page
         this.$router.push({
           name: 'Collaborator',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
     axios.all(
-      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-      axios.get(`http://`+ Address.ip +`/api/category/` + this.$route.params.id)
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+      axios.get(`http://`+ Address.ip +`/api/category/` + this.$route.params.id) // we get all the categories from the database
     .then(response => {
       this.category = response.data
     })
@@ -70,7 +75,7 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      axios.put(`http://`+ Address.ip +`/api/category/modify` + this.$route.params.id, this.category)
+      axios.put(`http://`+ Address.ip +`/api/category/modify` + this.$route.params.id, this.category) // we get the data entered for the modification of a category, then we insert the data in the categories collection
       .then(response => { 
         this.$router.push({
           name: 'ShowCategory',

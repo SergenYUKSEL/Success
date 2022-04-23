@@ -46,15 +46,20 @@ export default {
     }
   },
   created () {
-    if(sessionStorage.getItem('Role') === 'corrector') {
+    if(sessionStorage.getItem('Role') === 'corrector') { // if the user are corrector, we move him to home page
         this.$router.push({
           name: 'Corrector',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
     axios.all(
-      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-      axios.get(`http://`+ Address.ip +`/api/surveypass`)
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+      axios.get(`http://`+ Address.ip +`/api/surveypass`) // we get all the surveys already made from the database
     .then(response => {
       this.surveypasses = response.data
     })
@@ -64,7 +69,7 @@ export default {
     )
   },
   methods: {
-    details (surveypass) {
+    details (surveypass) { // the details method sends the user to the ShowSurveyCorrect page, with all the information of the selected survey corrected
       this.$router.push({
         name: 'ShowSurveyCorrect',
         params: { id: surveypass._id }

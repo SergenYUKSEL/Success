@@ -18,6 +18,7 @@
           Updated Date: {{suggestion.updated_date}}
         </p>
        <!-- <b-btn variant="success" @click.stop="editquestion(suggestion._id)">Edit</b-btn> -->
+       <!-- we can edit the suggestion if we want but for now the collaborator can't see his suggestion, that why its not useful to add edit option -->
        
          <b-form @submit="onSubmit">
        
@@ -46,22 +47,27 @@ export default {
     }
   },
   created () {
-    if(sessionStorage.getItem('Role') === 'collaborator') {
+    if(sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator, we move him to home page
         this.$router.push({
           name: 'Collaborator',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
     axios.all(
-      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-      axios.get(`http://`+ Address.ip +`/api/suggestion/` + this.$route.params.id)
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+      axios.get(`http://`+ Address.ip +`/api/suggestion/` + this.$route.params.id) // we get all the suggestions from the database
     .then(response => {
       this.suggestion = response.data
     })
     .catch(e => {
       this.errors.push(e)
     }),
-    axios.get(`http://`+ Address.ip +`/api/category`)
+    axios.get(`http://`+ Address.ip +`/api/category`) // we get all the categories from the database
     .then(response => {
       this.categories = response.data
       
@@ -74,9 +80,12 @@ export default {
   methods: {
      onSubmit (evt) {
       evt.preventDefault()
-      axios.post(`http://`+ Address.ip +`/api/question/create/`, this.suggestion)
+      axios.post(`http://`+ Address.ip +`/api/question/create/`, this.suggestion) 
+      // we take the suggestion info by id, and on the question create request we give suggestion data,
+      // and add the data by name because the two table have the same attributes.
       .then(response => {
         axios.delete(`http://`+ Address.ip +`/api/suggestion/delete` + this.$route.params.id)
+        // after add the suggestion to question table, we delete the suggestion.
         this.$router.push({
           name: 'ShowQuestion',
           params: { id: response.data.id }

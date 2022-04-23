@@ -40,15 +40,20 @@ export default {
     }
   },
   created () {
-    if(sessionStorage.getItem('Role') === 'collaborator') {
+    if(sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator, we move him to home page
         this.$router.push({
           name: 'Collaborator',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
     axios.all(
-      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-      axios.get(`http://`+ Address.ip +`/api/group`)
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+      axios.get(`http://`+ Address.ip +`/api/group`) // we get all the groups from the database
     .then(response => {
       this.groups = response.data
       
@@ -59,7 +64,7 @@ export default {
     )
   },
   methods: {
-    details (group) {
+    details (group) {  // the details method sends the user to the ShowGroup page, with all the information of the selected group
       this.$router.push({
         name: 'ShowGroup',
         params: { id: group._id }

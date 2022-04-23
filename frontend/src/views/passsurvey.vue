@@ -53,15 +53,20 @@ export default {
         }
     },
     created() {
-      if(sessionStorage.getItem('Role') === 'corrector') {
+      if(sessionStorage.getItem('Role') === 'corrector') { // if the user are corrector, we move him to home page
         this.$router.push({
           name: 'Corrector',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
     axios.all(
-      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-      axios.get(`http://`+ Address.ip +`/api/survey`)
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+      axios.get(`http://`+ Address.ip +`/api/survey`) // we get all the surveys from the database
     .then(response => {
       this.surveys = response.data
       
@@ -69,7 +74,7 @@ export default {
     .catch(e => {
       this.errors.push(e)
     }),
-    axios.get(`http://`+ Address.ip +`/api/auth/`+ userId)
+    axios.get(`http://`+ Address.ip +`/api/auth/`+ userId) // we get all the users from the database
     .then(response => {
       this.users = response.data
       console.log(response.data)
@@ -80,7 +85,7 @@ export default {
   methods: {
     onComplete(evt) {
       evt.preventDefault()
-      axios.post(`http://`+ Address.ip +`/api/surveypass/create/`, this.surveypass)
+      axios.post(`http://`+ Address.ip +`/api/surveypass/create/`, this.surveypass) // we get the data entered for the creation of a surveypass, then we insert the data in the surveypasses collection
       .then(response => {
         console.log(response)
         this.$router.push({

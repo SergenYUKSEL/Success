@@ -76,15 +76,20 @@ export default {
     }
   },
   created() {
-    if(sessionStorage.getItem('Role') === 'corrector') {
+    if(sessionStorage.getItem('Role') === 'corrector') { // if the user are corrector, we move him to home page
         this.$router.push({
           name: 'Corrector',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
     axios.all(
-      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-      axios.get(`http://`+ Address.ip +`/api/category`)
+      axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+      axios.get(`http://`+ Address.ip +`/api/category`) // we get all the categories from the database
     .then(response => {
       this.categories = response.data
       
@@ -98,7 +103,7 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      axios.post(`http://`+ Address.ip +`/api/suggestion/create/`, this.suggestion)
+      axios.post(`http://`+ Address.ip +`/api/suggestion/create/`, this.suggestion) // we get the data entered for the creation of a suggestion, then we insert the data in the suggestions collection
       .then(response => {
         this.$router.push({
           name: 'Collaborator',
@@ -110,7 +115,7 @@ export default {
       })
     
     },
-    Returnbehind() {
+    Returnbehind() { // returns to the previous page
         this.$router.push({
           name: 'Collaborator',
         })

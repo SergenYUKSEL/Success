@@ -45,12 +45,12 @@ export default {
     }
   },
   created() {
-        if (sessionStorage.getItem('Logged') === "true" && sessionStorage.getItem('Role') === 'collaborator') {
+        if (sessionStorage.getItem('Logged') === "true" && sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator and is logged, we move him to home page
       this.$router.push({
       name: 'Collaborator'
     })
     }
-    else if (sessionStorage.getItem('Logged') === "true" && sessionStorage.getItem('Role') === 'corrector') {
+    else if (sessionStorage.getItem('Logged') === "true" && sessionStorage.getItem('Role') === 'corrector') { // if the user are corrector and is logged, we move him to home page
       this.$router.push({
       name: 'Corrector'
     })
@@ -59,7 +59,7 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      axios.post(`http://`+ Address.ip +`/api/auth/login/`, this.user)
+      axios.post(`http://`+ Address.ip +`/api/auth/login/`, this.user) // we get the data entered for the creation of a user, then we insert the data in the users collection
       .then(response => {
         sessionStorage.setItem('Token', response.data.token)
         sessionStorage.setItem('User', response.data.userId)
@@ -68,15 +68,13 @@ export default {
         if ((response.data.userRole =="collaborator")) {
             this.$router.push({
           name: 'Collaborator',
-         // (pour l'instant on ne va pas l'utilisé) params: { token: response.data.token }
         })
-        this.$router.go() // permet d'actualiser la page pour le menu 
+        this.$router.go() // refreshes the page for the menu 
         } else if ((response.data.userRole == "corrector")) {
           this.$router.push({
             name: 'Corrector',
           })
-          this.$router.go() // permet d'actualiser la page pour le menu 
-         // (pour l'instant on ne va pas l'utilisé) params: { token: response.data.token }
+          this.$router.go()
       
       }
       })

@@ -48,7 +48,7 @@ import axios from 'axios';
 import Address from '../../config/AddressApi'
 const token = sessionStorage.getItem('Token')
 export default {
-    components: {
+    components: { // we import the components FormWizard and TabContent
         FormWizard, TabContent
     },
     data() {
@@ -62,32 +62,29 @@ export default {
         }
     },
     created() {
-    if(sessionStorage.getItem('Role') === 'collaborator') {
+    if(sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator, we move him to home page
         this.$router.push({
           name: 'Collaborator',
         })
       }
-      else if (sessionStorage.getItem('Logged') != "true") {
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
       this.$router.push({
       name: 'Login'
     })
     }
     axios.all(
-         axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token,
-         axios.get(`http://`+ Address.ip +`/api/auth/`)
+         axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token, // this is the authentication header to make requests from the api
+         axios.get(`http://`+ Address.ip +`/api/auth/`) // we get all the users from the database
     .then(response => {
       this.users = response.data
-      console.log(response.data)
     }),
-    axios.get(`http://`+ Address.ip +`/api/group/`)
+    axios.get(`http://`+ Address.ip +`/api/group/`) // we get all the groups from the database
     .then(response => {
       this.groups = response.data
-      console.log(response.data)
     }),
-    axios.get(`http://`+ Address.ip +`/api/surveypass/`)
+    axios.get(`http://`+ Address.ip +`/api/surveypass/`) // we get all the surveys already done
     .then(response => {
       this.surveypasses = response.data
-      console.log(response.data)
     }),
     
     )
@@ -96,9 +93,9 @@ export default {
 methods: {
     onComplete(evt) {
       evt.preventDefault()
-      axios.post(`http://`+ Address.ip +`/api/surveycorrect/create/`, this.surveycorrect)
-      .then(response => {
-        console.log(response)
+      axios.post(`http://`+ Address.ip +`/api/surveycorrect/create/`, this.surveycorrect) // we get the information entered for the correction, then we insert the data in the surveycorrect collection
+      .then(response => { // eslint-disable-line no-unused-vars
+
         this.$router.push({
           name: 'Corrector',
         })

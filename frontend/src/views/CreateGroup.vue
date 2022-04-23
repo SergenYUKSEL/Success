@@ -35,20 +35,25 @@ export default {
     }
   },
   created() {
-    if(sessionStorage.getItem('Role') === 'collaborator') {
+    if(sessionStorage.getItem('Role') === 'collaborator') { // if the user are collaborator, we move him to home page
         this.$router.push({
           name: 'Collaborator',
         })
       }
+      else if (sessionStorage.getItem('Logged') != "true") { // if the user is not logged in, we move him to the login page
+      this.$router.push({
+      name: 'Login'
+    })
+    }
       
-    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token
+    axios.defaults.headers.common['Authorization'] =  'Bearer' +' '+  token // this is the authentication header to make requests from the api
   },
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      axios.post(`http://`+ Address.ip +`/api/group/create/`, this.group)
+      axios.post(`http://`+ Address.ip +`/api/group/create/`, this.group) // we get the data entered for the creation of a group, then we insert the data in the collection groups
       .then(response => {
-        this.$router.push({
+        this.$router.push({ 
           name: 'ShowGroup',
           params: { id: response.data.id }
         })
@@ -57,7 +62,7 @@ export default {
         this.errors.push(e)
       })
     },
-     Returnbehind() {
+     Returnbehind() { // returns to the previous page
         this.$router.push({
           name: 'Corrector',
         })

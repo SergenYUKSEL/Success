@@ -11,7 +11,7 @@ export default {
     },
     created() {
         if (sessionStorage.getItem('Token') != null && sessionStorage.getItem('User') != null && sessionStorage.getItem('Role') != null)   {
-            sessionStorage.clear()
+            sessionStorage.clear() // clear the session storage data and logout user
             alert('you have been successfully disconnected!')
             this.$router.push({
                 name: 'Login'
